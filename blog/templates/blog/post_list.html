@@ -4,24 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
     <title>Blogs :)</title>
 </head>
 <body>
-    <div>
-        <h1><a href="/">MicroBlog!</a></h1>
+    <div class="title">
+        <h1 class="title-text"><a href="/">Alloa Blog Testsite</a></h1>
     </div>
 
-    <div>
-        <p>published: 14.06.2019, 12:13</p>
-        <h2><a href="">My first post</a></h2>
-            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        </div>
 
-        <div>
-            <p>published: 14.06.2014, 12:14</p>
-            <h2><a href="">My second post</a></h2>
-            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut f.</p>
-        </div>
+    <div class="main">
+        <div class="articles-container">
+            {% for post in posts %}
+                <div class="article">
+                    <h2><a href="">{{ post.title }}</a></h2>
+                    <p>{{ post.published_date }}</p>
+                    <p>{{ post.text|linebreaksbr }}</p>
+                </div>
+            {% endfor %}
+        </div>   
     </div>
+    
 </body>
 </html>
