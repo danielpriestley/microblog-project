@@ -1,5 +1,6 @@
 *.pyc
 *~
+.vscode
 __pycache__
 microblog
 db.sqlite3
