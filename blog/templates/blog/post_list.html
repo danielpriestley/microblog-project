@@ -16,6 +16,7 @@
 
     <div class="main">
         <div class="articles-container">
+                {% block content %}
             {% for post in posts %}
                 <div class="article">
                     <h2><a href="">{{ post.title }}</a></h2>
@@ -23,6 +24,7 @@
                     <p>{{ post.text|linebreaksbr }}</p>
                 </div>
             {% endfor %}
+            {% endblock %}
         </div>   
     </div>
     
